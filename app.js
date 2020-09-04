@@ -1,7 +1,7 @@
 import express from 'express';
 import { accountRouter } from './routes/accountRouter.js';
 import mongoose from 'mongoose';
-
+// Conectando ao mongoose
 (async () => {
   try {
     await mongoose.connect(
