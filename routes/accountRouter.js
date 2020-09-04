@@ -217,6 +217,15 @@ app.get('/accounts', async (req, res) => {
   }
 });
 
+app.put('/accounts', async (req, res) => {
+  try {
+    const accounts = await accountModel.find({});
+    res.send(accounts);
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
 function validateParams(params) {
   params.forEach((param) => {
     if (!param) throw new Error('Parametro invalido!');
