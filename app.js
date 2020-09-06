@@ -17,7 +17,7 @@ import mongoose from 'mongoose';
 
     console.log('conectou no mongose');
   } catch (error) {
-    console.log('BROQUEROU NO MONGOOSE');
+    console.log('BROQUEROU NO MONGOOSE ==> ' + error);
   }
 })();
 
