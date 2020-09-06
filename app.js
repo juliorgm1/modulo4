@@ -4,15 +4,16 @@ import mongoose from 'mongoose';
 // Conectando ao mongoose
 (async () => {
   try {
-    await mongoose.connect(
-      'mongodb+srv://juliorgm:estragobirobaldo@cluster0.qlsjp.mongodb.net/atividade-pratica?retryWrites=true&w=majority',
-      {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-        useFindAndModify: false,
-        useCreateIndex: true,
-      }
-    );
+    const connection_string = `mongodb+srv://${process.env.USERDB}:
+                              ${process.env.PWDDB}
+                              @cluster0.qlsjp.mongodb.net/${process.env.DATABASE}?
+                              retryWrites=true&w=majority`;
+    await mongoose.connect(connection_string, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+      useCreateIndex: true,
+    });
 
     console.log('conectou no mongose');
   } catch (error) {
