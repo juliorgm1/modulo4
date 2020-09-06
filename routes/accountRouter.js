@@ -217,6 +217,15 @@ app.get('/accounts', async (req, res) => {
   }
 });
 
+app.get('/fiveaccounts', async (req, res) => {
+  try {
+    const accounts = await accountModel.find({});
+    res.send(accounts.slice(0, 4));
+  } catch (error) {
+    res.status(400).send(error);
+  }
+});
+
 app.put('/accounts', async (req, res) => {
   try {
     const accounts = await accountModel.find({});
